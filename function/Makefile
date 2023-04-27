@@ -6,7 +6,7 @@
 #    By: czavalet <czavalet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:08:04 by czavalet          #+#    #+#              #
-#    Updated: 2023/04/02 17:05:31 by czavalet         ###   ########.fr        #
+#    Updated: 2023/04/27 17:39:17 by czavalet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ ft_calloc.c\
 ft_strdup.c\
 ft_substr.c\
 ft_strjoin.c\
-ft_strtrim.c
+ft_strtrim.c\
+ft_split.c
 
 OBJ = $(SRC:.c=.o)
 
