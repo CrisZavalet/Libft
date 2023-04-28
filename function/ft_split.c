@@ -6,31 +6,31 @@
 /*   By: czavalet <czavalet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:10:32 by czavalet          #+#    #+#             */
-/*   Updated: 2023/04/27 17:39:39 by czavalet         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:35:48 by czavalet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_c(char *str, char c)
+static int	i_words(char *str, char c)
 {
 	int	i;
-	int	wc;
+	int	words;
 
 	i = 0;
-	wc = 0;
+	words = 0;
 	if (str[i] != c && str[i] != '\0')
-		wc++;
+		words++;
 	while (str[i])
 	{
 		if (str[i + 1] && str[i] == c && (str[i + 1] != c))
-			wc++;
+			words++;
 		i++;
 	}
-	return (wc);
+	return (words);
 }
 
-static char	**cpy(char **mots, char const *s, int wc, char c)
+static	char	**push_arr(char **arrp, char const *s, int b, char c)
 {
 	int	i;
 	int	j;
@@ -39,7 +39,7 @@ static char	**cpy(char **mots, char const *s, int wc, char c)
 
 	i = 0;
 	j = 0;
-	while (j < wc)
+	while (j < b)
 	{
 		len = 0;
 		while (s[i] == c)
@@ -50,26 +50,24 @@ static char	**cpy(char **mots, char const *s, int wc, char c)
 			len++;
 			i++;
 		}
-		mots[j] = ft_substr(s, start, len);
+		arrp[j] = ft_substr(s, start, len);
 		j++;
 	}
-	mots[j] = 0;
-	return (mots);
+	arrp[j] = 0;
+	return (arrp);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**mots;
-	int		wc;
+	char	**arrp;
+	int		i_word;
 
 	if (!s)
 		return (NULL);
-	wc = word_c((char *)s, c);
-	mots = malloc(sizeof(char *) * (wc + 1));
-	if (!mots)
-		return (0);
-	mots = cpy(mots, s, wc, c);
-	return (mots);
+	i_word = i_words((char *)s, c);
+	arrp = malloc(sizeof(char *) * (i_word + 1));
+	if (!arrp)
+		return (NULL);
+	arrp = push_arr(arrp, s, i_word, c);
+	return (arrp);
 }
-
-
