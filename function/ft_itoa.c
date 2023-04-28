@@ -6,7 +6,13 @@
 /*   By: czavalet <czavalet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 12:38:59 by czavalet          #+#    #+#             */
-/*   Updated: 2023/04/28 12:39:01 by czavalet         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:48:57 by czavalet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+char	*ft_itoa(int n)
+{
+	
+}
